@@ -21,7 +21,7 @@ on top.**
 | Regime                            | mean NIS | in-CI fraction | Reading           |
 |-----------------------------------|---------:|---------------:|-------------------|
 | Matched synthetic (MuJoCo, σ=10)  |     3.03 |           0.95 | calibrated        |
-| Real tracker on MuJoCo renders    |     1.54 |           0.32 | tracker mismatch  |
+| Real tracker on MuJoCo renders    |     5.78 |           0.52 | tracker mismatch  |
 | IWS GT-rendered frames            |     6.36 |           0.59 | larger mismatch   |
 | IWS open-loop rollout             |    27.34 |           0.60 | most severe       |
 
