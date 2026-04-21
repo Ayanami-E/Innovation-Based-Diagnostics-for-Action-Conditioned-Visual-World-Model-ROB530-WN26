@@ -1,0 +1,13 @@
+# Core requirements for Part 1 / Part 1.6 / Part 2 analysis and plotting.
+# Sufficient to reproduce every number in results/*.csv from the cached
+# rollout artifacts. For regenerating rollouts from the IWS world model
+# itself, also install requirements-iws.txt.
+
+numpy>=1.24
+scipy>=1.10
+matplotlib>=3.7
+opencv-python>=4.8
+mujoco>=3.0
+
+# Testing (optional)
+pytest>=7.4

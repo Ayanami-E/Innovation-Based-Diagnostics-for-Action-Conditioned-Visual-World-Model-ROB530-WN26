@@ -1,0 +1,18 @@
+# Extra requirements for regenerating IWS world-model rollouts from
+# checkpoints. Not required if you only want to re-run the analysis off
+# the cached rollouts in output/.
+#
+# These versions were the ones known to load the IWS PushT checkpoint in
+# our environment; newer versions may work but are untested.
+
+-r requirements.txt
+
+torch>=2.0
+lightning>=2.0
+omegaconf>=2.3
+einops>=0.7
+
+# yixuan_utilities is a small helper package bundled with the upstream
+# Interactive World Sim repo (https://github.com/real-stanford/interactive_world_sim).
+# Install it from that clone:
+#   pip install -e interactive_world_sim/

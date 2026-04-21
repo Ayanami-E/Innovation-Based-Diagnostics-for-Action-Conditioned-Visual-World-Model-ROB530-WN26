@@ -1,0 +1,26 @@
+\begin{table}[t]
+\centering
+\caption{\textbf{Table IIa — Synthetic positive control.} Measurements are $y_t = \mathrm{gt}_t + \mathcal{N}(0, R_t)$ with $R_t$ matching the filter's internal $R$. Pooled across 20 episodes of 150 steps. Position RMSE in cm, orientation RMSE in degrees; $\bar{\mathrm{NIS}}$ mean, $f_{\mathrm{CI}}$ = fraction of pooled NIS inside $[\chi^2_{3,.025}, \chi^2_{3,.975}]$, $p_{\mathrm{KS}}$ = K--S $p$-value against $\chi^2(3)$.}
+\label{tab:part1_synth}
+\begin{tabular}{llccccc}
+\toprule
+$\sigma$ (px) & Filter & pos (cm) & ori (deg) & $\bar{\mathrm{NIS}}$ & $f_{\mathrm{CI}}$ & $p_{\mathrm{KS}}$ \\
+\midrule
+0 & raw & 0.000 & 1.275 & -- & -- & -- \\
+ & EKF-Cartesian & 0.000 & 0.655 & 3.013 & 0.716 & 0.000 \\
+ & RI-EKF & 0.262 & 0.726 & 212.347 & 0.173 & 0.000 \\
+\midrule
+5 & raw & 1.162 & 1.246 & -- & -- & -- \\
+ & EKF-Cartesian & 0.667 & 0.674 & 2.971 & 0.947 & 0.079 \\
+ & RI-EKF & 0.693 & 0.671 & 3.363 & 0.928 & 0.000 \\
+\midrule
+10 & raw & 2.301 & 1.283 & -- & -- & -- \\
+ & EKF-Cartesian & 1.154 & 0.651 & 3.034 & 0.951 & 0.789 \\
+ & RI-EKF & 1.191 & 0.624 & 3.221 & 0.942 & 0.000 \\
+\midrule
+20 & raw & 4.588 & 1.316 & -- & -- & -- \\
+ & EKF-Cartesian & 2.060 & 0.650 & 3.068 & 0.944 & 0.492 \\
+ & RI-EKF & 2.128 & 0.611 & 3.171 & 0.944 & 0.030 \\
+\bottomrule
+\end{tabular}
+\end{table}

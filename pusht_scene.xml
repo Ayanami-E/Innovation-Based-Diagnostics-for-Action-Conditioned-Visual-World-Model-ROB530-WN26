@@ -1,0 +1,55 @@
+<mujoco model="pusht">
+  <option gravity="0 0 0" timestep="0.002">
+    <flag contact="enable"/>
+  </option>
+
+  <visual>
+    <global offwidth="256" offheight="256"/>
+  </visual>
+
+  <default>
+    <geom condim="3" contype="1" conaffinity="1"/>
+  </default>
+
+  <asset>
+    <material name="table_mat" rgba="0.85 0.85 0.85 1"/>
+    <material name="tblock_mat" rgba="0.7 0.24 0.7 1"/>
+    <material name="pusher_mat" rgba="0.24 0.24 0.78 1"/>
+  </asset>
+
+  <contact>
+    <pair geom1="pusher_geom" geom2="t_bar"/>
+    <pair geom1="pusher_geom" geom2="t_stem"/>
+  </contact>
+
+  <worldbody>
+    <geom name="table" type="plane" size="0.5 0.5 0.001" material="table_mat"
+          contype="0" conaffinity="0"/>
+
+    <body name="tblock" pos="0 0 0">
+      <joint name="tblock_x" type="slide" axis="1 0 0" damping="5" limited="true" range="-0.15 0.15"/>
+      <joint name="tblock_y" type="slide" axis="0 1 0" damping="5" limited="true" range="-0.15 0.15"/>
+      <joint name="tblock_rot" type="hinge" axis="0 0 1" damping="1"/>
+      <!-- Bar: 10cm wide x 2cm tall -->
+      <geom name="t_bar" type="box" size="0.05 0.01 0.05"
+            pos="0 -0.045 0" material="tblock_mat" mass="0.15"/>
+      <!-- Stem: 2cm wide x 8cm tall -->
+      <geom name="t_stem" type="box" size="0.01 0.04 0.05"
+            pos="0 0.005 0" material="tblock_mat" mass="0.15"/>
+    </body>
+
+    <body name="pusher" pos="0 0 0">
+      <joint name="pusher_x" type="slide" axis="1 0 0" limited="true" range="-0.18 0.18"/>
+      <joint name="pusher_y" type="slide" axis="0 1 0" limited="true" range="-0.18 0.18"/>
+      <geom name="pusher_geom" type="cylinder" size="0.015 0.05"
+            material="pusher_mat" mass="0.5"/>
+    </body>
+
+    <camera name="top_down" pos="0 0 0.5" quat="1 0 0 0" fovy="45"/>
+  </worldbody>
+
+  <actuator>
+    <velocity name="pusher_vx" joint="pusher_x" kv="50"/>
+    <velocity name="pusher_vy" joint="pusher_y" kv="50"/>
+  </actuator>
+</mujoco>
